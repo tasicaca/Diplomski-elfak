@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 import time
-
+# ovaj kod ne radi
 # Constants
 whT = 320
 confThreshold = 0.5
@@ -190,3 +190,25 @@ while True:
 
 cap.release()
 cv.destroyAllWindows()
+###    Filtriranje Tipova Objekata:
+###        Dodata je lista ciljnih klasa (target_classes) koja sadrži vozila kao što su automobili, motocikli, kamioni i autobusi.
+###       Modifikovana je funkcija find_objects kako bi se filtrirale detekcije na osnovu odabranih ciljnih klasa.
+###
+###   Unapređenje Detekcije Puta:
+###       Zamenjena je prethodna logika detekcije puta novom funkcijom nazvanom detect_white_lines.
+###        Integrisana je Hafova transformacija linija kako bi se detektovala bela ili skoro bela linija na putu.
+###        Primenjeno je adaptivno pragiranje radi poboljšanja vidljivosti kontura puta.
+###
+###    Detekcija Objekta koji Napušta Put:
+###       Prilagođen je uslov za smatranje da objekat napušta put. Sada se uzimaju u obzir samo donji i bočni delovi objekta.
+###       Donji centar je postavljen manje striktno kako bi se uzeli u obzir različiti slučajevi detekcije.
+###
+###   Ostala Manja Unapređenja:
+###       Uklonjene su nepotrebne promenljive (line_coordinates, sensitivity, line_thickness).
+###       Uklonjeni su nepotrebni parametri u funkciji pronadji_put.
+###        Rešen je problem sa parametrom maxLineGap u Hafovim linijama (vaša verzija OpenCV nije podržavala ovaj parametar).
+###
+###    Ukupna Integracija:
+###       Unapređenja su kombinovana u koherentan deo koda koji se može integrisati u postojeći kod.
+###
+###Napomena: Promene su uvedene korak po korak kako bi se osigurala kompatibilnost i funkcionalnost na svakom koraku. Zamoljeni ste da zamenite odgovarajuće delove vašeg postojećeg koda sa ponuđenim isecima kako biste uključili unapređenja.
